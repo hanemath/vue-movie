@@ -44,8 +44,31 @@ export default {
     name: 'MovieBoard',
     data() {
         return {
-
+            movies: [],
+            searchword: 'avenger',
         }
+    },
+    mounted() {
+        var url = 'http://www.omdbapi.com/?apikey=83e7b6de&s='+this.searchword;
+        fetch(url)
+        .then( response => response.json())
+        .then(data => {
+            //this.movies = data;
+            //console.log(this.movies)
+            //console.log(this.movies.Genre);
+            
+            const a = data.Search[3]
+            a.forEach((item, index) => {
+                const datamovie = {
+                    'judul' : data.Title,
+                    'tahun'  : data.Year,
+                }
+                this.movies.push(datamovie)
+                console.log(datamovie)
+            });
+
+        })
+
     }
 }
 </script>
