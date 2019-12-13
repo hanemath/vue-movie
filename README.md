@@ -1,7 +1,7 @@
 # vue-movie
 
-> Vue.js project for assignment.
-> Building website using OMDBAPI to search and display data about movie.
+Vue.js project for assignment.
+Building website using OMDBAPI to search and display data about movie.
 
 ## Build Setup
 
