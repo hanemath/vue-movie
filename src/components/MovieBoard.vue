@@ -3,50 +3,70 @@
         <div class="row justify-content-center">
             <div class="col-9">
                 <form class="form-inline">
-                    <input class="form-control col-11" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2" type="submit">Search</button>
+                    <input class="form-control col-11" type="text" placeholder="Search" aria-label="Search" v-model="searchword">
+                    <button class="btn btn-outline-success my-2" type="submit" v-on:click="searchMovie">Search</button>
                 </form>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-9 card-group">
-            <div class="card">
-                <img src="../assets/movie.jpg" class="card-img-top" alt="">
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../assets/movie.jpg" class="card-img-top" alt="">
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../assets/movie.jpg" class="card-img-top" alt="">
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <div class="col-6">
+                <h2>Result</h2>
+                <div class="card col-6" v-for="movie in movies">
+                    <img class="card-img-top img-fluid" v-bind:src="movie.Poster" alt="card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{movie.Title}}</h5>
+                        <p class="card-text">{{movie.Year}}</p>
+                        <a href="#" class="btn btn-primary">Lihat</a>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
+
     </div>
 </template>
 
 <script>
+import { error } from 'util';
 export default {
     name: 'MovieBoard',
     data() {
         return {
-
+            movies: [],
+            searchword: '',
         }
-    }
+    },
+    mounted() {
+        //INI DAH BERHASIL
+        // var url = 'http://www.omdbapi.com/?apikey=83e7b6de&s='+this.searchword;
+        // fetch(url)
+        // .then( response => response.json())
+        // .then(data => {
+        //     this.movies = data;
+        //     console.log(this.movies)
+        //     console.log(this.movies.Search[0].Title)
+
+        // })
+    },
+    methods: {
+        searchMovie() {
+            var url = 'http://www.omdbapi.com/?apikey=83e7b6de&s='+this.searchword;
+            fetch(url)
+            .then( response => response.json())
+            .then(data => {
+                const datafilm = data.Search
+                console.log(datafilm)
+                this.movies = datafilm
+                //this.movies.push(datafilm)
+            })
+            .catch(error => console.log(error))
+
+            //Mapping
+            // let films = datafilm
+            // films.map(film => {
+            //     let judul = film.Title
+            // })
+        },    
+    },
 }
 </script>
 
