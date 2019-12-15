@@ -1,10 +1,10 @@
 <template>
-<div id="nav" class="mb-5">
+<div id="nav">
     <nav class="navbar .navbar-expand{-sm|-md|-lg|-xl} navbar-dark custombg fixed-top">
         <router-link class="navbar-brand active" to="/">
             <b>Movie Checker</b>
         </router-link>
-        <router-link class="on-user ml-auto px-4" to="/" >hey , you're on!</router-link>
+        <router-link class="on-user ml-auto px-4" to="/" >not what you want?</router-link>
         <button class="navbar-toggler m-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,7 +38,7 @@ nav .link-nav {
     color: #fff;
 }
 #app .custombg {
-    background-color: #01203c
+    background-color: #992e24;
 }
 </style>
  
