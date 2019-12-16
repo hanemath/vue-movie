@@ -1,16 +1,13 @@
 <template>
-<div id="nav">
-    <nav class="navbar .navbar-expand{-sm|-md|-lg|-xl} navbar-dark custombg fixed-top">
-        <router-link class="navbar-brand active" to="/">
-            <b>Movie Checker</b>
+<div id="nav" class="row">
+    <nav class="navbar .navbar-expand{-sm|-md|-lg|-xl} navbar-dark custombg fixed-top col-12">
+        <router-link class="navbar-brand active col text-left" to="/"><b>Movie Bank</b></router-link>
+        <router-link class="on-user col-1 pt-2 mx-0 my-0" to="/imdb" >
+            <p><img src="../assets/imdb.svg" class="img-fluid col-12" alt=""></p>
         </router-link>
-        <router-link class="on-user ml-auto px-4" to="/" >not what you want?</router-link>
-        <button class="navbar-toggler m-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-           
-        </div>
+        <router-link class="on-user col-1 pt-2 mx-0" to="/rotten-tomatoes" >
+            <p><img src="../assets/rt.png" class="img-fluid col-12" alt=""></p>
+        </router-link>
     </nav>
 </div>   
 </template>
@@ -18,24 +15,12 @@
 <script>
 export default {
     name: 'navbar',
-    data () {
-        return {
-
-        }
-    }
 }
 </script>
 
 <style>
-nav form .form-inline {
-    margin: 0;
-    padding: 0;
-}
 nav .on-user{
     color:#fff;
-}
-nav .link-nav {
-    color: #fff;
 }
 #app .custombg {
     background-color: #992e24;
